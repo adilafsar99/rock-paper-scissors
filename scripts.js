@@ -43,3 +43,16 @@ function getUserChoice() {
 }
 
 console.log(getUserChoice());
+
+
+/* Declare a function named playRound() that takes userChoice and comChoice as arguements, logs
+the result of the round to the console and increments the winner's score if there is one.
+
+/* Declare a variable named result that stores the result of the round. */
+
+/* Compare all three possible comChoice values all three possible userChoice values and store 
+the result in the result variable. */
+
+/* Log a message to the console announcing the result of the round using the result variable. */
+
+/* Increment the score of the user who won the round if there is a winner. */
