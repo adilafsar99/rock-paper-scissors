@@ -5,7 +5,7 @@ let userScore = 0;
 let computerScore = 0;
 
 
-/* Declare a function to randomly generate and return the computer's choice. */
+// Declare a function to randomly generate and return the computer's choice.
 
 function getComputerChoice() {
     // Declare a variable named comChoiceNum to store a number to select the computer's choice.
@@ -31,8 +31,7 @@ function getComputerChoice() {
 
 console.log(getComputerChoice());
 
-/* Declare a function named getUserChoice to prompt the user to enter their choice and
-return it. */
+// Declare a function to prompt the user to enter their choice and return it.
 
 function getUserChoice() {
     // Prompt the user to enter their choice and store it inside the variable userChoice
@@ -44,4 +43,3 @@ function getUserChoice() {
 }
 
 console.log(getUserChoice());
-
