@@ -1,7 +1,6 @@
-/* Declare a function named getComputerChoice to randomly generate and return
- a string 'Rock', 'Paper' or 'Scissors'. */
+/* Declare a function to randomly generate and return the computer's choice. */
 
-const getComputerChoice = function () {
+function getComputerChoice() {
     // Declare a variable named comChoiceNum to store a number to select the computer's choice.
     let comChoiceNum;
     // Declare a variable named comChoice to store the  computer's choice.
@@ -24,3 +23,4 @@ const getComputerChoice = function () {
 }
 
 console.log(getComputerChoice());
+
