@@ -44,11 +44,16 @@ function playGame() {
     let computerScore = 0;
 
     // Initialize a variable to keep track of the rounds.
-    let round = 1;
+    let round = 0;
+
+    playRound(getUserChoice(), getComputerChoice(), round);
 
     // Declare a function that takes the user and computer's choice and simulates a round.
 
-    function playRound(userChoice, comChoice) {
+    function playRound(userChoice, comChoice, round) {
+        // Increase the round count by 1.
+        round += 1;
+        
         // Declare a variable to store the result of the round.
         let result = '';
 
@@ -81,10 +86,18 @@ function playGame() {
                 result = 'c_won'
             }
         }
+
+        // Call the logRoundResult() function with the result arguement to log the result of the round.
+        logRoundResult(userChoice, comChoice, result);
+
+
+        if (round < 5) {
+            playRound(getUserChoice(), getComputerChoice(), round)
+        }
     }
     
     // Declare a function to log the result of the round to the console and update the score if needed.
-    function logRoundResult(result) {
+    function logRoundResult(userChoice, comChoice, result) {
         // Display a message in the console that shows the result of the round and increment the winner's score.
         if (result === 'u_won') {
             console.log(`You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`)
@@ -100,7 +113,7 @@ function playGame() {
     }
 }
 
-
+playGame();
 
 
 
