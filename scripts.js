@@ -1,95 +1,102 @@
-// Initialize a variable to store the user's score.
-let userScore = 0;
+/* Declare a function that simulates 5 rounds of Rock, Paper, Scissors between the computer
+and the user. */
 
-// Initialize a variable to store the computer's score.
-let computerScore = 0;
+function playGame() {
+    // Initialize a variable to store the user's score.
+    let userScore = 0;
+
+    // Initialize a variable to store the computer's score.
+    let computerScore = 0;
 
 
-// Declare a function to randomly generate and return the computer's choice.
+    // Declare a function to randomly generate and return the computer's choice.
 
-function getComputerChoice() {
-    // Declare a variable named comChoiceNum to store a number to select the computer's choice.
-    let comChoiceNum;
-    // Declare a variable named comChoice to store the  computer's choice.
-    let comChoice = '';
+    function getComputerChoice() {
+        // Declare a variable named comChoiceNum to store a number to select the computer's choice.
+        let comChoiceNum;
+        // Declare a variable named comChoice to store the  computer's choice.
+        let comChoice = '';
 
-    // Generate a random whole number between 0 & 2 and store it inside the variable comChoiceNum.
-    comChoiceNum = Math.floor((Math.random() * 3));
+        // Generate a random whole number between 0 & 2 and store it inside the variable comChoiceNum.
+        comChoiceNum = Math.floor((Math.random() * 3));
 
-    // Compare the value of comChoiceNum with 0 and 1 to determine the value of comChoice.
-    if (comChoiceNum === 0) {
-        comChoice = 'rock';
-    }
-    else if (comChoiceNum === 1) {
-        comChoice = 'paper';
-    }
-    else {
-        comChoice = 'scissors';
-    }
-    return comChoice;
-}
-
-console.log(getComputerChoice());
-
-// Declare a function to prompt the user to enter their choice and return it.
-
-function getUserChoice() {
-    // Prompt the user to enter their choice and store it inside the variable userChoice
-    let userChoice = prompt('Enter your choice: ', '');
-
-    // Convert the value inside userChoice to lower case to remove case related errors
-    userChoice = userChoice.toLowerCase()
-    return userChoice;
-}
-
-// Declare a function that takes the user and computer's choice and simulates a round.
-
-function playRound(userChoice, comChoice) {
-    // Declare a variable to store the result of the round.
-    let result = '';
-
-    // Compare every possible value of userChoice and comChoice and store the result.
-    // Check if there is a tie.
-    if (comChoice === userChoice) {
-        result = 'tie';
-    }
-    else if (comChoice === 'rock') {
-        if (userChoice === 'paper') {
-            result = 'u_won'
+        // Compare the value of comChoiceNum with 0 and 1 to determine the value of comChoice.
+        if (comChoiceNum === 0) {
+            comChoice = 'rock';
+        }
+        else if (comChoiceNum === 1) {
+            comChoice = 'paper';
         }
         else {
-            result = 'c_won'
+            comChoice = 'scissors';
         }
+        return comChoice;
     }
-    else if (comChoice === 'paper') {
-        if (userChoice === 'scissors') {
-            result = 'u_won'
+
+    console.log(getComputerChoice());
+
+    // Declare a function to prompt the user to enter their choice and return it.
+
+    function getUserChoice() {
+        // Prompt the user to enter their choice and store it inside the variable userChoice
+        let userChoice = prompt('Enter your choice: ', '');
+
+        // Convert the value inside userChoice to lower case to remove case related errors
+        userChoice = userChoice.toLowerCase()
+        return userChoice;
+    }
+
+    // Declare a function that takes the user and computer's choice and simulates a round.
+
+    function playRound(userChoice, comChoice) {
+        // Declare a variable to store the result of the round.
+        let result = '';
+
+        // Compare every possible value of userChoice and comChoice and store the result.
+        // Check if there is a tie.
+        if (comChoice === userChoice) {
+            result = 'tie';
+        }
+        else if (comChoice === 'rock') {
+            if (userChoice === 'paper') {
+                result = 'u_won'
+            }
+            else {
+                result = 'c_won'
+            }
+        }
+        else if (comChoice === 'paper') {
+            if (userChoice === 'scissors') {
+                result = 'u_won'
+            }
+            else {
+                result = 'c_won'
+            }
         }
         else {
-            result = 'c_won'
+            if (userChoice === 'rock') {
+                result = 'u_won'
+            }
+            else {
+                result = 'c_won'
+            }
         }
-    }
-    else {
-        if (userChoice === 'rock') {
-            result = 'u_won'
+        // Display a message in the console that shows the result of the round and increment the winner's score.
+        if (result === 'u_won') {
+            console.log(`You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`)
+            userScore += 1;
+        }
+        else if (result === 'c_won') {
+            console.log(`You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`)
+            computerScore += 1;
         }
         else {
-            result = 'c_won'
+            console.log('Its a tie!')
         }
-    }
-    // Display a message in the console that shows the result of the round and increment the winner's score.
-    if (result === 'u_won') {
-        console.log(`You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`)
-        userScore += 1;
-    }
-    else if (result === 'c_won') {
-        console.log(`You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`)
-        computerScore += 1;
-    }
-    else {
-        console.log('Its a tie!')
     }
 }
+
+
 
 
 
