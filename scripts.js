@@ -1,16 +1,26 @@
 /* Declare a function named getComputerChoice to randomly generate and return
  a string 'Rock', 'Paper' or 'Scissors'. */
 
-/* Declare a variable named comChoiceNum to store a number between 0 and 2 to select the
-computer's choice */
+const getComputerChoice = function () {
+    // Declare a variable named comChoiceNum to store a number to select the computer's choice.
+    let comChoiceNum;
+    // Declare a variable named comChoice to store the  computer's choice.
+    let comChoice = '';
 
-/* Declare a variable named comChoice to store computer's choice and initialize
- it with an empty string. */
+    // Generate a random whole number between 0 & 2 and store it inside the variable comChoiceNum.
+    comChoiceNum = Math.floor((Math.random() * 3));
 
-/* Generate a random whole number between 0 & 2 and store it inside the variable comChoiceNum. */
+    // Compare the value of comChoiceNum with 0 and 1 to determine the value of comChoice
+    if (comChoiceNum === 0) {
+        comChoice = 'Rock';
+    }
+    else if (comChoiceNum === 1) {
+        comChoice = 'Paper';
+    }
+    else {
+        comChoice = 'Scissors';
+    }
+    return comChoice;
+}
 
-// Compare the value stored inside comChoiceNum  and:
-// If comChoiceNum = 0, set comChoice to 'Rock'.
-// Else if comChoiceNum = 1, set comChoice to 'Paper'.
-// Else if comChoiceNum = 2, set comChoice to 'Scissors'.
-// Retrieve comChoice from the function.
+console.log(getComputerChoice());
