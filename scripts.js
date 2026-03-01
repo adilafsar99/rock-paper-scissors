@@ -27,8 +27,13 @@ console.log(getComputerChoice());
 /* Declare a function named getUserChoice to prompt the user to enter their choice and
 return it. */
 
-// Declare a variable named userChoice to store user input.
-// Prompt the user to enter their choice and convert it into lower case.
-// Store the lower case input into userChoice.
+function getUserChoice() {
+    // Prompt the user to enter their choice and store it inside the variable userChoice
+    let userChoice = prompt('Enter your choice: ', '');
 
-/* Retrieve the value of userChoice from the function */
+    // Convert the value inside userChoice to lower case
+    userChoice = userChoice.toLowerCase()
+    return userChoice;
+}
+
+console.log(getUserChoice());
