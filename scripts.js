@@ -42,17 +42,56 @@ function getUserChoice() {
     return userChoice;
 }
 
-console.log(getUserChoice());
-
-
 /* Declare a function named playRound() that takes userChoice and comChoice as arguements, logs
-the result of the round to the console and increments the winner's score if there is one.
+the result of the round to the console and increments the winner's score if there is one. */
 
-/* Declare a variable named result that stores the result of the round. */
+function playRound(userChoice, comChoice) {
+    // Declare a variable to store the result of the round.
+    let result = '';
 
-/* Compare all three possible comChoice values all three possible userChoice values and store 
-the result in the result variable. */
+    // Compare every possible value of userChoice and comChoice and store the result.
+    // Check if there is a tie.
+    if (comChoice === userChoice) {
+        result = 'tie';
+    }
+    else if (comChoice === 'rock') {
+        if (userChoice === 'paper') {
+            result = 'u_won'
+        }
+        else {
+            result = 'c_won'
+        }
+    }
+    else if (comChoice === 'paper') {
+        if (userChoice === 'scissors') {
+            result = 'u_won'
+        }
+        else {
+            result = 'c_won'
+        }
+    }
+    else {
+        if (userChoice === 'rock') {
+            result = 'u_won'
+        }
+        else {
+            result = 'c_won'
+        }
+    }
+    // Display a message in the console that shows the result of the round and increment the winner's score.
+    if (result === 'u_won') {
+        console.log(`You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`)
+        userScore += 1;
+    }
+    else if (result === 'c_won') {
+        console.log(`You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`)
+        computerScore += 1;
+    }
+    else {
+        console.log('Its a tie!')
+    }
+}
 
-/* Log a message to the console announcing the result of the round using the result variable. */
 
-/* Increment the score of the user who won the round if there is a winner. */
+playRound(getUserChoice() ,getComputerChoice());
+
