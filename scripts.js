@@ -90,9 +90,14 @@ function playGame() {
         // Call the logRoundResult() function with the result arguement to log the result of the round.
         logRoundResult(userChoice, comChoice, result);
 
-
+        // Use recursion to call the function 5 times instead of a loop.
         if (round < 5) {
             playRound(getUserChoice(), getComputerChoice(), round)
+        }
+        // Display the result of all the rounds in the console.
+        else {
+            console.log(`The computer's score is ${computerScore}.`)
+            console.log(`Your score is ${userScore}.`)
         }
     }
     
