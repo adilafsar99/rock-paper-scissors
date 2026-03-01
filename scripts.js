@@ -42,8 +42,7 @@ function getUserChoice() {
     return userChoice;
 }
 
-/* Declare a function named playRound() that takes userChoice and comChoice as arguements, logs
-the result of the round to the console and increments the winner's score if there is one. */
+// Declare a function that takes the user and computer's choice and simulates a round.
 
 function playRound(userChoice, comChoice) {
     // Declare a variable to store the result of the round.
@@ -93,5 +92,4 @@ function playRound(userChoice, comChoice) {
 }
 
 
-playRound(getUserChoice() ,getComputerChoice());
 
