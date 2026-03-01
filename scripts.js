@@ -11,13 +11,13 @@ function getComputerChoice() {
 
     // Compare the value of comChoiceNum with 0 and 1 to determine the value of comChoice
     if (comChoiceNum === 0) {
-        comChoice = 'Rock';
+        comChoice = 'rock';
     }
     else if (comChoiceNum === 1) {
-        comChoice = 'Paper';
+        comChoice = 'paper';
     }
     else {
-        comChoice = 'Scissors';
+        comChoice = 'scissors';
     }
     return comChoice;
 }
