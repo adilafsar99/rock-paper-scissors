@@ -7,9 +7,8 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="text">
+			<div class="heading">
 				<h1>Rock, Paper and Scissors</h1>
-				<p>Click on a card to choose and play.</p>
 			</div>
 			<div class="choice-cards player-cards">
 				<div class="choice-card">
@@ -26,9 +25,17 @@
 				</div>
 			</div>
 			<div class="score-cards">
-				<div class="player-score"></div>
-				<div class="message-screen"></div>
-				<div class="computer-score"></div>
+				<div class="score-card">
+					<p>Player Score</p>
+                    <p id="player-score"></p>
+				</div>
+				<div class="message-screen">
+					<p id="message">Click on a card to choose and play.</p>
+				</div>
+				<div class="score-card">
+					<p>Computer Score</p>
+                    <p id="computer-score"></p>
+				</div>
 			</div>
 			<div class="choice-cards computer-cards">
 				<div class="choice-card">
@@ -44,9 +51,7 @@
 					<p>Scissors</p>
 				</div>
 			</div>
-            <div class="buttons">
-                
-            </div>
+			<div class="buttons"></div>
 		</div>
 
 		<script src="scripts.js"></script>

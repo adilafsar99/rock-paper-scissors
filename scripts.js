@@ -117,8 +117,3 @@ function playGame() {
         }
     }
 }
-
-playGame();
-
-
-
