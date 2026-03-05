@@ -25,21 +25,22 @@ function getComputerChoice() {
 // Declare a function to prompt the user to enter their choice and return it.
 
 function getUserChoice(event) {
+    let playerChoice;
     switch (event.target.id) {
         case 'rock-text':
         case 'rock-image':
-            console.log(event.target);
+            playerChoice = 'rock';
             break;
         case 'paper-text':
         case 'paper-image':
-            console.log(event.target);
+            playerChoice = 'paper';
             break;
         case 'scissors-text':
         case 'scissors-image':
-            console.log(event.target);
+            playerChoice = 'scissors';
             break;
     }
-    return
+    return playerChoice;
 }
 
 /* Declare a function that simulates 5 rounds of Rock, Paper, Scissors between the computer
@@ -60,7 +61,6 @@ function playGame(event) {
     // Declare a function that takes the user and computer's choice and simulates a round.
 
     function playRound(userChoice, comChoice, round) {
-        /*
         // Increase the round count by 1.
         round += 1;
         
@@ -97,9 +97,8 @@ function playGame(event) {
             }
         }
 
-        // Call the logRoundResult() function with the result arguement to log the result of the round.
-        logRoundResult(userChoice, comChoice, result);
-
+        showRoundResult(userChoice, comChoice, result);
+        /*
         // Use recursion to call the function 5 times instead of a loop.
         if (round < 5) {
             playRound(getUserChoice(), getComputerChoice(), round)
@@ -109,23 +108,28 @@ function playGame(event) {
             console.log(`The computer's score is ${computerScore}.`)
             console.log(`Your score is ${userScore}.`)
         }
+            */
     }
     
-    // Declare a function to log the result of the round to the console and update the score if needed.
-    function logRoundResult(userChoice, comChoice, result) {
-        // Display a message in the console that shows the result of the round and increment the winner's score.
+    // Declare a function to show the result of the round and update the score if needed.
+    function showRoundResult(userChoice, comChoice, result) {
+        // Display a message that shows the result of the round and increment the winner's score.
+        const message = document.querySelector('#message');
         if (result === 'u_won') {
-            console.log(`You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`)
-            userScore += 1;
+            message.textContent =  `You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`;
+            const userScore = document.querySelector('#player-score');
+            const score = +userScore.textContent;
+            userScore.textContent = score + 1;
         }
         else if (result === 'c_won') {
-            console.log(`You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`)
-            computerScore += 1;
+            message.textContent =  `You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`;
+            const computerScore = document.querySelector('#computer-score');
+            const score = +computerScore.textContent;
+            computerScore.textContent = score + 1;
         }
         else {
-            console.log('Its a tie!')
+            message.textContent = `It's a tie.`;
         }
-      */
     }
 }
 
