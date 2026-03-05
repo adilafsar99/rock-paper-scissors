@@ -18,4 +18,14 @@ body {
 .choice-card {
     width: 25%;
     height: max-content;
+    border: 3px solid;
+    border-radius: 10px;
+}
+
+.choice-card-text {
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 5px;
+    margin: 0;
 }
