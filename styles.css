@@ -1,7 +1,7 @@
 body {
     width: 80%;
     margin: 0 auto;
-    padding: 0;   
+    padding: 0;
 }
 
 .heading {
@@ -15,11 +15,14 @@ body {
     flex-wrap: wrap;
 }
 
-.choice-card {
-    width: 25%;
+.card {
     height: max-content;
     border: 3px solid;
     border-radius: 10px;
+}
+
+.choice-card {
+    width: 25%;
 }
 
 .choice-card-text {
@@ -28,4 +31,15 @@ body {
     background-color: black;
     padding: 5px;
     margin: 0;
+}
+
+.score-cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.score-card {
+    width: 20%;
 }
