@@ -24,19 +24,28 @@ function getComputerChoice() {
 
 // Declare a function to prompt the user to enter their choice and return it.
 
-function getUserChoice() {
-    // Prompt the user to enter their choice and store it inside the variable userChoice
-    let userChoice = prompt('Enter your choice: ', '');
-
-    // Convert the value inside userChoice to lower case to remove case related errors
-    userChoice = userChoice.toLowerCase()
-    return userChoice;
+function getUserChoice(event) {
+    switch (event.target.id) {
+        case 'rock-text':
+        case 'rock-image':
+            console.log(event.target);
+            break;
+        case 'paper-text':
+        case 'paper-image':
+            console.log(event.target);
+            break;
+        case 'scissors-text':
+        case 'scissors-image':
+            console.log(event.target);
+            break;
+    }
+    return
 }
 
 /* Declare a function that simulates 5 rounds of Rock, Paper, Scissors between the computer
 and the user. */
 
-function playGame() {
+function playGame(event) {
     // Initialize a variable to store the user's score.
     let userScore = 0;
 
@@ -46,11 +55,12 @@ function playGame() {
     // Initialize a variable to keep track of the rounds.
     let round = 0;
 
-    playRound(getUserChoice(), getComputerChoice(), round);
+    playRound(getUserChoice(event), getComputerChoice(), round);
 
     // Declare a function that takes the user and computer's choice and simulates a round.
 
     function playRound(userChoice, comChoice, round) {
+        /*
         // Increase the round count by 1.
         round += 1;
         
@@ -115,5 +125,9 @@ function playGame() {
         else {
             console.log('Its a tie!')
         }
+      */
     }
 }
+
+const choiceCards = document.querySelector('.player-cards');
+choiceCards.addEventListener('click', playGame);
