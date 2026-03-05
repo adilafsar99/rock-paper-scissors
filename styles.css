@@ -7,3 +7,15 @@ body {
 .heading {
     text-align: center;
 }
+
+.choice-cards {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.choice-card {
+    width: 25%;
+    height: max-content;
+}
