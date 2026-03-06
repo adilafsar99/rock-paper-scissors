@@ -45,7 +45,7 @@ function getUserChoice(event) {
 
 // Declare a function that takes the user and computer's choice and simulates a round.
 
-function playRound(event) {
+function play(event) {
     let userChoice = getUserChoice(event);
     let comChoice = getComputerChoice();
     if (userScore < 5 || computerScore < 5) {
@@ -128,4 +128,4 @@ let computerScore = +computerScorePara.textContent;
 const messagePara = document.querySelector('#message');
 const resetBtn = document.querySelector('#reset-btn');
 const choiceCards = document.querySelector('.player-cards');
-choiceCards.addEventListener('click', playRound);
+choiceCards.addEventListener('click', play);
