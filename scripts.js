@@ -43,22 +43,12 @@ function getUserChoice(event) {
     return playerChoice;
 }
 
-/* Declare a function that simulates 5 rounds of Rock, Paper, Scissors between the computer
-and the user. */
+// Declare a function that takes the user and computer's choice and simulates a round.
 
-function playGame(event) {
-    // Get the scores and check them to continue the rounds until any player scores 5 points.
-    const userScorePara = document.querySelector('#player-score');
-    let userScore = +userScorePara.textContent;
-    const computerScorePara = document.querySelector('#computer-score');
-    let computerScore = +computerScorePara.textContent;
+function playRound(event) {
+    let userChoice = getUserChoice(event);
+    let comChoice = getComputerChoice();
     if (userScore < 5 || computerScore < 5) {
-        playRound(getUserChoice(event), getComputerChoice());
-    }
-
-    // Declare a function that takes the user and computer's choice and simulates a round.
-
-    function playRound(userChoice, comChoice) {
         // Declare a variable to store the result of the the game.
         let result;
         // Compare every possible value of userChoice and comChoice and store the result.
@@ -93,39 +83,49 @@ function playGame(event) {
 
         showResult(userChoice, comChoice, result);
     }
+}
 
-    // Declare a function to show the result of the match and update the score if needed.
-    function showResult(userChoice, comChoice, result) {
-        const userScorePara = document.querySelector('#player-score');
-        let userScore = +userScorePara.textContent;
-        const computerScorePara = document.querySelector('#computer-score');
-        let computerScore = +computerScorePara.textContent;
-        const messagePara = document.querySelector('#message');
-        if (userScore < 5 && computerScore < 5) {
-            switch (result) {
-                case 'u_won':
-                    messagePara.textContent = `You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`;
-                    userScore += 1;
-                    userScorePara.textContent = userScore;
-                    break;
-                case 'c_won':
-                    messagePara.textContent = `You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`;
-                    computerScore += 1;
-                    computerScorePara.textContent = computerScore;
-                    break;
-                case 'tie':
-                    messagePara.textContent = `It's a tie.`;
-            }
+// Declare a function to show the result of the match and update the score if needed.
+function showResult(userChoice, comChoice, result) {
+    if (userScore < 5 && computerScore < 5) {
+        switch (result) {
+            case 'u_won':
+                messagePara.textContent = `You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`;
+                userScore += 1;
+                userScorePara.textContent = userScore;
+                break;
+            case 'c_won':
+                messagePara.textContent = `You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`;
+                computerScore += 1;
+                computerScorePara.textContent = computerScore;
+                break;
+            case 'tie':
+                messagePara.textContent = `It's a tie.`;
         }
+    }
+    if (userScore === 5 || computerScore === 5) {
         if (userScore === 5) {
             messagePara.textContent = 'Congratulations! You won this game.';
         }
-        else if (computerScore === 5) {
+        if (computerScore === 5) {
             messagePara.textContent = 'Sorry! The computer won this game.';
         }
-
+        resetBtn.classList.remove('invisible');
+        resetBtn.addEventListener('click', playAgain);
     }
+
 }
 
+const playAgain = function () {
+    //
+}
+
+
+const userScorePara = document.querySelector('#player-score');
+let userScore = +userScorePara.textContent;
+const computerScorePara = document.querySelector('#computer-score');
+let computerScore = +computerScorePara.textContent;
+const messagePara = document.querySelector('#message');
+const resetBtn = document.querySelector('#reset-btn');
 const choiceCards = document.querySelector('.player-cards');
-choiceCards.addEventListener('click', playGame);
+choiceCards.addEventListener('click', playRound);
