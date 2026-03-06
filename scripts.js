@@ -19,6 +19,11 @@ function getComputerChoice() {
     else {
         comChoice = 'scissors';
     }
+    const comChoiceCard = document.querySelector(`#${comChoice}`);
+    comChoiceCard.classList.add('computer-choice');
+    setTimeout(() => {
+        comChoiceCard.classList.remove('computer-choice');
+    }, 1000)
     return comChoice;
 }
 
