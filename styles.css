@@ -75,6 +75,20 @@ p {
     color: white;
     background-color: black;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+#reset-btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.player-choice-card {
+    cursor: pointer;
+}
+
+.player-choice-card:hover {
+    opacity: 60%;
 }
 
 .invisible {

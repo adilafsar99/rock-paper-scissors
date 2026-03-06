@@ -125,12 +125,11 @@ const playAgain = function () {
     resetBtn.classList.add('invisible');
 }
 
-
 const userScorePara = document.querySelector('#player-score');
 let userScore = +userScorePara.textContent;
 const computerScorePara = document.querySelector('#computer-score');
 let computerScore = +computerScorePara.textContent;
 const messagePara = document.querySelector('#message');
 const resetBtn = document.querySelector('#reset-btn');
-const choiceCards = document.querySelector('.player-cards');
+const choiceCards = document.querySelector('.choice-cards');
 choiceCards.addEventListener('click', play);
