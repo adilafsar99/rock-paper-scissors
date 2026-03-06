@@ -81,6 +81,7 @@ p {
 .message-screen {
     border-bottom: 3px solid;
     padding-bottom: 3px;
+    font-size: 16px;
 }
 
 #reset-btn {

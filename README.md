@@ -1,2 +1,1 @@
-# rock-paper-scissors
-A javascript program that runs in the console and simulates five rounds of rock, paper and scissors between the user and the cpu.
+Added UI to the program to allow the player to make selection via mouse or touch. Learned about event delegation and utilized it to set up a single event listener for all three cards. Reworked the program logic to keep playing until one of the player scores 5 points. 
