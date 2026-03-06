@@ -47,26 +47,20 @@ function getUserChoice(event) {
 and the user. */
 
 function playGame(event) {
-    // Initialize a variable to store the user's score.
-    let userScore = 0;
-
-    // Initialize a variable to store the computer's score.
-    let computerScore = 0;
-
-    // Initialize a variable to keep track of the rounds.
-    let round = 0;
-
-    playRound(getUserChoice(event), getComputerChoice(), round);
+    // Get the scores and check them to continue the rounds until any player scores 5 points.
+    const userScorePara = document.querySelector('#player-score');
+    let userScore = +userScorePara.textContent;
+    const computerScorePara = document.querySelector('#computer-score');
+    let computerScore = +computerScorePara.textContent;
+    if (userScore < 5 || computerScore < 5) {
+        playRound(getUserChoice(event), getComputerChoice());
+    }
 
     // Declare a function that takes the user and computer's choice and simulates a round.
 
-    function playRound(userChoice, comChoice, round) {
-        // Increase the round count by 1.
-        round += 1;
-        
-        // Declare a variable to store the result of the round.
-        let result = '';
-
+    function playRound(userChoice, comChoice) {
+        // Declare a variable to store the result of the the game.
+        let result;
         // Compare every possible value of userChoice and comChoice and store the result.
         // Check if there is a tie.
         if (comChoice === userChoice) {
@@ -97,39 +91,39 @@ function playGame(event) {
             }
         }
 
-        showRoundResult(userChoice, comChoice, result);
-        /*
-        // Use recursion to call the function 5 times instead of a loop.
-        if (round < 5) {
-            playRound(getUserChoice(), getComputerChoice(), round)
-        }
-        // Display the result of all the rounds in the console.
-        else {
-            console.log(`The computer's score is ${computerScore}.`)
-            console.log(`Your score is ${userScore}.`)
-        }
-            */
+        showResult(userChoice, comChoice, result);
     }
-    
-    // Declare a function to show the result of the round and update the score if needed.
-    function showRoundResult(userChoice, comChoice, result) {
-        // Display a message that shows the result of the round and increment the winner's score.
-        const message = document.querySelector('#message');
-        if (result === 'u_won') {
-            message.textContent =  `You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`;
-            const userScore = document.querySelector('#player-score');
-            const score = +userScore.textContent;
-            userScore.textContent = score + 1;
+
+    // Declare a function to show the result of the match and update the score if needed.
+    function showResult(userChoice, comChoice, result) {
+        const userScorePara = document.querySelector('#player-score');
+        let userScore = +userScorePara.textContent;
+        const computerScorePara = document.querySelector('#computer-score');
+        let computerScore = +computerScorePara.textContent;
+        const messagePara = document.querySelector('#message');
+        if (userScore < 5 && computerScore < 5) {
+            switch (result) {
+                case 'u_won':
+                    messagePara.textContent = `You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${comChoice}.`;
+                    userScore += 1;
+                    userScorePara.textContent = userScore;
+                    break;
+                case 'c_won':
+                    messagePara.textContent = `You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`;
+                    computerScore += 1;
+                    computerScorePara.textContent = computerScore;
+                    break;
+                case 'tie':
+                    messagePara.textContent = `It's a tie.`;
+            }
         }
-        else if (result === 'c_won') {
-            message.textContent =  `You lose! ${comChoice.charAt(0).toUpperCase() + comChoice.slice(1)} beats ${userChoice}.`;
-            const computerScore = document.querySelector('#computer-score');
-            const score = +computerScore.textContent;
-            computerScore.textContent = score + 1;
+        if (userScore === 5) {
+            messagePara.textContent = 'Congratulations! You won this game.';
         }
-        else {
-            message.textContent = `It's a tie.`;
+        else if (computerScore === 5) {
+            messagePara.textContent = 'Sorry! The computer won this game.';
         }
+
     }
 }
 
