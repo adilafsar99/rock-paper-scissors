@@ -27,15 +27,12 @@ function getComputerChoice() {
 function getUserChoice(event) {
     let playerChoice;
     switch (event.target.id) {
-        case 'rock-text':
         case 'rock-image':
             playerChoice = 'rock';
             break;
-        case 'paper-text':
         case 'paper-image':
             playerChoice = 'paper';
             break;
-        case 'scissors-text':
         case 'scissors-image':
             playerChoice = 'scissors';
             break;
