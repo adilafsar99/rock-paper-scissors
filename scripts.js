@@ -117,7 +117,12 @@ function showResult(userChoice, comChoice, result) {
 }
 
 const playAgain = function () {
-    //
+    userScore = 0;
+    computerScore = 0;
+    userScorePara.textContent = userScore;
+    computerScorePara.textContent = computerScore;
+    messagePara.textContent = 'Click on a card to choose and play.';
+    resetBtn.classList.add('invisible');
 }
 
 
